@@ -32,3 +32,21 @@ def real_login(request):
         formulario = LogInForm()
     
     return render_to_response('login.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+def real_signin(request):
+    if not request.user.is_anonymous():
+        return HttpResponseRedirect('/')
+    if request.method=='POST':
+        formulario = UsuarioForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            if formulario.cleaned_data['password']==formulario.cleaned_data['password2']:
+                usuario = User.objects.create_user(formulario.cleaned_data['user'], formulario.cleaned_data['email'], formulario.cleaned_data['password'])
+                Usiario.objects.create(usuario=usuario, nombre=formulario.cleaned_data['nombre'], apellidos=formulario.cleaned_data['apellidos'],
+                                           universidad=formulario.cleaned_data['universidad'], titulacion=formulario.cleaned_data['titulacion'])
+                return HttpResponseRedirect('/login')
+            else:
+                error = "Las password no coinciden"
+                return render_to_response('signin.html',{'formulario':formulario, 'error':error}, context_instance=RequestContext(request))
+    else:
+        formulario = AlumnoForm()
+    return render_to_response('signin.html',{'formulario':formulario}, context_instance=RequestContext(request))
