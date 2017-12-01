@@ -9,12 +9,11 @@
 {% block contenido %}
 	<h2>Movimientos</h2>
 	<hr>
-		{% for dato in tfgs %}
-			<h3>{{dato.titulo}}</h3>
-			<caption>Titulacion: {{dato.titulacion}}</caption>
-			<p>{{dato.descripcion}}</p>
-			<strong>Profesor:</strong> {{dato.profesor.nombre}} {{dato.profesor.apellidos}}
-			<hr>
+		{% for c in cuentas %}
+			{% if usuario in c.usuario %}
+			<h3>{{c.numero}}</h3>
+			{% endif %}
+			
 		{% empty %}
 			<li>No hay TFGs</li>
 		{% endfor %}
