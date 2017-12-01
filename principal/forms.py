@@ -7,16 +7,16 @@ from principal.models import *
 class LogInForm(forms.Form):
     user = forms.CharField(label="Usuario", widget=forms.TextInput, required=True)
     password = forms.CharField(label="Password", widget=forms.PasswordInput, required=True)
+    
+class FormUsuario(ModelForm):
+    email = forms.EmailField(label='Email', widget=forms.TextInput, required=True)
+    user = forms.CharField(label="Usuario", widget=forms.TextInput, required=True)
+    password = forms.CharField(label="Password", widget=forms.PasswordInput, required=True)
+    password2 = forms.CharField(label="Repita Password", widget=forms.PasswordInput, required=True)
+    class Meta:
+        model = Usuario
+        fields = ['nombre', 'apellidos']
 
-# class AlumnoForm(ModelForm):
-#     email = forms.EmailField(label='Email', widget=forms.TextInput, required=True)
-#     user = forms.CharField(label="Usuario", widget=forms.TextInput, required=True)
-#     password = forms.CharField(label="Password", widget=forms.PasswordInput, required=True)
-#     password2 = forms.CharField(label="Repita Password", widget=forms.PasswordInput, required=True)
-#     class Meta:
-#         model = Alumno
-#         fields = ['nombre', 'apellidos', 'universidad', 'titulacion']
-#         
 # class ProfesorForm(ModelForm):
 #     email = forms.EmailField(label='Email', widget=forms.TextInput, required=True)
 #     user = forms.CharField(label="Usuario", widget=forms.TextInput, required=True)
