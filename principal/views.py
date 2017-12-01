@@ -1,10 +1,12 @@
-from principal.models import *
-from django.shortcuts import render_to_response, get_list_or_404
-from django.contrib.auth import authenticate
-from principal.forms import *
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render_to_response, get_list_or_404
 from django.template import RequestContext
+
+from principal.forms import *
+from principal.models import *
 
 def inicio(request):
     autenticado = False
