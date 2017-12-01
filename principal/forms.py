@@ -16,6 +16,10 @@ class UsuarioForm(ModelForm):
     class Meta:
         model = Usuario
         fields = ['nombre', 'apellidos']
+        
+class SucursalesForm(ModelForm):
+    class Meta:
+        model = Sucursales
 
 class BancoForm(ModelForm):
     class Meta:
