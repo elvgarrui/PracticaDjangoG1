@@ -64,4 +64,4 @@ def create_sucursal(request):
             return HttpResponseRedirect('/')
     else:
         formulario = SucursalesForm()
-    return render_to_response('tfg.html',{'formulario':formulario}, context_instance=RequestContext(request))
+    return render_to_response('sucursal.html',{'formulario':formulario}, context_instance=RequestContext(request))
