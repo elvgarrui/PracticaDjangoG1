@@ -105,3 +105,8 @@ def create_tipo_de_movimiento(request):
     else:
         formulario = TipoMovimientoForm()
     return render_to_response('tipoDeMovimiento.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+def list_movimientos(request):
+    cuentas = Cuenta.objects.all()
+    movimientos = Movimiento.objects.all()
+    return render_to_response("lista_movimientos.html", {'cuentas':cuetas, 'movimientos':movimientos})
