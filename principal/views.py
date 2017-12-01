@@ -75,4 +75,33 @@ def create_cuenta(request):
     else:
         formulario = CuentaForm()
     return render_to_response('cuenta.html',{'formulario':formulario}, context_instance=RequestContext(request))
-    
+
+def create_banco(request):
+    if request.method=='POST':
+        formulario = BancoForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect('/')
+    else:
+        formulario = BancoForm()
+    return render_to_response('nuevoBanco.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+def create_movimiento(request):
+    if request.method=='POST':
+        formulario = MovimientoForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect('/')
+    else:
+        formulario = MovimientoForm()
+    return render_to_response('movimiento.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+def create_tipo_de_movimiento(request):
+    if request.method=='POST':
+        formulario = TipoMovimientoForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect('/')
+    else:
+        formulario = TipoMovimientoForm()
+    return render_to_response('tipoDeMovimiento.html',{'formulario':formulario}, context_instance=RequestContext(request))
