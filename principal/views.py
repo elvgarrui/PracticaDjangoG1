@@ -108,6 +108,7 @@ def create_tipo_de_movimiento(request):
 
 @login_required(login_url='/login')
 def list_movimientos(request):
+    usuario = Usuario.objects.get(usuario_id=request.user.id)
     cuentas = Cuenta.objects.all()
     movimientos = Movimiento.objects.all()
-    return render_to_response("lista_movimientos.html", {'cuentas':cuentas, 'movimientos':movimientos})
+    return render_to_response("lista_movimientos.html", {'cuentas':cuentas, 'movimientos':movimientos, 'usuario':usuario})
