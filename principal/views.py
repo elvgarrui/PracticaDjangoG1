@@ -51,3 +51,13 @@ def real_signin(request):
     else:
         formulario = UsuarioForm()
     return render_to_response('signin.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+def create_sucursal(request):
+    if request.method=='POST':
+        formulario = SucursalesForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect('/')
+    else:
+        formulario = SucursalesForm()
+    return render_to_response('tfg.html',{'formulario':formulario}, context_instance=RequestContext(request))
