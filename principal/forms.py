@@ -28,6 +28,14 @@ class BancoForm(ModelForm):
 class CuentaForm(ModelForm):
     class Meta:
         model = Cuenta
+        
+class MovimientoForm(ModelForm):
+    class Meta:
+        model = Movimiento
+
+class TipoMovimientoForm(ModelForm):
+    class Meta:
+        model = TipoMovimiento
 # class ProfesorForm(ModelForm):
 #     email = forms.EmailField(label='Email', widget=forms.TextInput, required=True)
 #     user = forms.CharField(label="Usuario", widget=forms.TextInput, required=True)
