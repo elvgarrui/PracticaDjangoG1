@@ -116,4 +116,4 @@ def list_movimientos(request):
 def list_sucursales(request):
     bancos = Banco.objects.all()
     sucursales = Sucursales.objects.all()
-    return render_to_response("listaBS.html", {'bancos':bancos, 'sucursales':sucursales})
+    return render_to_response("lista_sucursales.html", {'bancos':bancos, 'sucursales':sucursales})
