@@ -24,6 +24,10 @@ class SucursalesForm(ModelForm):
 class BancoForm(ModelForm):
     class Meta:
         model = Banco
+        
+class CuentaForm(ModelForm):
+    class Meta:
+        model = Cuenta
 # class ProfesorForm(ModelForm):
 #     email = forms.EmailField(label='Email', widget=forms.TextInput, required=True)
 #     user = forms.CharField(label="Usuario", widget=forms.TextInput, required=True)
