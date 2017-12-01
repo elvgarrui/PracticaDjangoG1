@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titulo%} Sucursales por Bancos {% endblock %}
+
+{% block encabezado %}
+	<h1>Sucursales por Bancos</h1>
+{% endblock %}
+
+{% block contenido %}
+	<h2>Lista de sucursales por bancos</h2>
+	<hr>
+		{% for dato in bancos %}
+			<h3>{{dato.entidadId}}</h3>
+			<caption>Sucursales de este banco:
+			{% for datoAux in dato.Sucursales.all}</caption>
+				<h4>datoAux</h4>
+			<hr>
+		{% empty %}
+			<li>No hay bancos</li>
+		{% endfor %}
+{% endblock %}
+	
