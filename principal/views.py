@@ -34,6 +34,12 @@ def real_login(request):
     
     return render_to_response('login.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
+def real_logout(request):
+    logout(request)
+#     autenticado = 0
+    tfgs = TFG.objects.all()
+    return render_to_response("inicio.html", {'tfgs':tfgs, 'auth':False})
+
 def real_signin(request):
     if not request.user.is_anonymous():
         return HttpResponseRedirect('/')
