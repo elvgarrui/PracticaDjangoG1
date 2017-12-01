@@ -31,3 +31,20 @@ class Cuenta(models.Model):
     def __unicode__(self):
         return self.numero
     
+
+class TipoMovimiento(models.Model):
+    tipomovId = models.CharField(max_length=50)
+    descripcion = models.TextField()
+
+    def __unicode__(self):
+        return self.tipomovId
+
+class Movimiento(models.Model):
+    fecha = models.DateTimeField()
+    ncuenta = models.ForeignKey(Cuenta)
+    tipo = models.ForeignKey(TipoMovimiento)
+    descripcion = models.TextField()
+    euros = models.FloatField()
+    
+    def __unicode__(self):
+        return self.descripcion    
