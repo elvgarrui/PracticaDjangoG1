@@ -60,8 +60,9 @@ def create_sucursal(request):
     if request.method=='POST':
         formulario = SucursalesForm(request.POST, request.FILES)
         if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/')
+            if len(formulario.cleaned_data['sucursalId']) == 4:    
+                formulario.save()
+                return HttpResponseRedirect('/')
     else:
         formulario = SucursalesForm()
     return render_to_response('sucursal.html',{'formulario':formulario}, context_instance=RequestContext(request))
@@ -70,8 +71,9 @@ def create_cuenta(request):
     if request.method=='POST':
         formulario = CuentaForm(request.POST, request.FILES)
         if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/')
+            if len(formulario.cleaned_data['numero']) == 20:        
+                formulario.save()
+                return HttpResponseRedirect('/')
     else:
         formulario = CuentaForm()
     return render_to_response('cuenta.html',{'formulario':formulario}, context_instance=RequestContext(request))
@@ -80,8 +82,9 @@ def create_banco(request):
     if request.method=='POST':
         formulario = BancoForm(request.POST, request.FILES)
         if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/')
+            if len(formulario.cleaned_data['entidadId']) == 4:
+                formulario.save()
+                return HttpResponseRedirect('/')
     else:
         formulario = BancoForm()
     return render_to_response('nuevoBanco.html',{'formulario':formulario}, context_instance=RequestContext(request))
