@@ -57,37 +57,46 @@ def real_signin(request):
     return render_to_response('signin.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
 def create_sucursal(request):
+    error = ""
     if request.method=='POST':
         formulario = SucursalesForm(request.POST, request.FILES)
         if formulario.is_valid():
             if len(formulario.cleaned_data['sucursalId']) == 4:    
                 formulario.save()
                 return HttpResponseRedirect('/')
+            else:
+                error = "minimo 4"
     else:
         formulario = SucursalesForm()
-    return render_to_response('sucursal.html',{'formulario':formulario}, context_instance=RequestContext(request))
+    return render_to_response('sucursal.html',{'formulario':formulario, 'error':error}, context_instance=RequestContext(request))
 
 def create_cuenta(request):
+    error = ""
     if request.method=='POST':
         formulario = CuentaForm(request.POST, request.FILES)
         if formulario.is_valid():
-            if len(formulario.cleaned_data['numero']) == 20:        
+            if len(formulario.cleaned_data['numero']) == 10:        
                 formulario.save()
                 return HttpResponseRedirect('/')
+            else:
+                error = "min 10"
     else:
         formulario = CuentaForm()
-    return render_to_response('cuenta.html',{'formulario':formulario}, context_instance=RequestContext(request))
+    return render_to_response('cuenta.html',{'formulario':formulario, 'error':error}, context_instance=RequestContext(request))
 
 def create_banco(request):
+    error =""
     if request.method=='POST':
         formulario = BancoForm(request.POST, request.FILES)
         if formulario.is_valid():
             if len(formulario.cleaned_data['entidadId']) == 4:
                 formulario.save()
                 return HttpResponseRedirect('/')
+            else:
+                error="Minimo 4 digitos"
     else:
         formulario = BancoForm()
-    return render_to_response('nuevoBanco.html',{'formulario':formulario}, context_instance=RequestContext(request))
+    return render_to_response('nuevoBanco.html',{'formulario':formulario, 'error':error}, context_instance=RequestContext(request))
 
 def create_movimiento(request):
     if request.method=='POST':

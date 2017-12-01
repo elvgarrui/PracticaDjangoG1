@@ -10,16 +10,13 @@
 	<h2>Movimientos</h2>
 	<hr>
 		{% for c in cuentas %}
-			{% if usuario in c.usuario %}
 			<h3>{{c.numero}}</h3>
 				<p>Movimientos</p>
 				{% for m in movimientos %}
-					{% if m.ncuenta==c %}
+					{% if m.ncuenta == c %}
 						<p>{{m}}</p>
 					{% endif %}
 				{% endfor %}
-			{% endif %}
-			
 		{% empty %}
 			<li>No hay Movimientos</li>
 		{% endfor %}
