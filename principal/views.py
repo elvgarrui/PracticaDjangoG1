@@ -37,8 +37,7 @@ def real_login(request):
 def real_logout(request):
     logout(request)
 #     autenticado = 0
-    tfgs = TFG.objects.all()
-    return render_to_response("inicio.html", {'tfgs':tfgs, 'auth':False})
+    return render_to_response("inicio.html", {'auth':False})
 
 def real_signin(request):
     if not request.user.is_anonymous():
@@ -65,4 +64,4 @@ def create_sucursal(request):
             return HttpResponseRedirect('/')
     else:
         formulario = SucursalesForm()
-    return render_to_response('tfg.html',{'formulario':formulario}, context_instance=RequestContext(request))
+    return render_to_response('sucursal.html',{'formulario':formulario}, context_instance=RequestContext(request))
