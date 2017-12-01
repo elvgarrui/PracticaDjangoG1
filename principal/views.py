@@ -65,3 +65,14 @@ def create_sucursal(request):
     else:
         formulario = SucursalesForm()
     return render_to_response('sucursal.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+def create_cuenta(request):
+    if request.method=='POST':
+        formulario = CuentaForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect('/')
+    else:
+        formulario = CuentaForm()
+    return render_to_response('cuenta.html',{'formulario':formulario}, context_instance=RequestContext(request))
+    
