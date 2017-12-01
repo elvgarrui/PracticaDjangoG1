@@ -6,12 +6,13 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'practicaDjangoG1.views.home', name='home'),
-    # url(r'^practicaDjangoG1/', include('practicaDjangoG1.foo.urls')),
+    url(r'^$', 'principal.views.inicio', name='Inicio'),
+    url(r'^login/', 'principal.views.real_login'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+
 )
