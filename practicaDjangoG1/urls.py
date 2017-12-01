@@ -9,6 +9,9 @@ urlpatterns = patterns('',
     url(r'^$', 'principal.views.inicio', name='Inicio'),
     url(r'^login/', 'principal.views.real_login'),
     url(r'^signin/', 'principal.views.real_signin'),
+    url(r'^logout/', 'principal.views.real_logout'),
+    url(r'^creasucursal/', 'principal.views.create_sucursal'),
+    
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

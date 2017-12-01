@@ -26,7 +26,7 @@ class Usuario(models.Model):
 
 class Cuenta(models.Model):
     numero = models.CharField(max_length=20)
-    usuario = models.ForeignKey(Usuario)
+    usuario = models.ManyToManyField(Usuario)
     saldo = models.FloatField()
     def __unicode__(self):
         return self.numero
