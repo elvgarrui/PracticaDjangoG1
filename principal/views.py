@@ -8,6 +8,7 @@ from django.template import RequestContext
 from principal.forms import *
 from principal.models import *
 
+
 def inicio(request):
     autenticado = False
     user = request.user
@@ -41,12 +42,12 @@ def real_signin(request):
         if formulario.is_valid():
             if formulario.cleaned_data['password']==formulario.cleaned_data['password2']:
                 usuario = User.objects.create_user(formulario.cleaned_data['user'], formulario.cleaned_data['email'], formulario.cleaned_data['password'])
-                Usiario.objects.create(usuario=usuario, nombre=formulario.cleaned_data['nombre'], apellidos=formulario.cleaned_data['apellidos'],
+                Usuario.objects.create(usuario=usuario, nombre=formulario.cleaned_data['nombre'], apellidos=formulario.cleaned_data['apellidos'],
                                            universidad=formulario.cleaned_data['universidad'], titulacion=formulario.cleaned_data['titulacion'])
                 return HttpResponseRedirect('/login')
             else:
                 error = "Las password no coinciden"
                 return render_to_response('signin.html',{'formulario':formulario, 'error':error}, context_instance=RequestContext(request))
     else:
-        formulario = AlumnoForm()
+        formulario = UsuarioForm()
     return render_to_response('signin.html',{'formulario':formulario}, context_instance=RequestContext(request))

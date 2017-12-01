@@ -8,7 +8,7 @@ class LogInForm(forms.Form):
     user = forms.CharField(label="Usuario", widget=forms.TextInput, required=True)
     password = forms.CharField(label="Password", widget=forms.PasswordInput, required=True)
     
-class FormUsuario(ModelForm):
+class UsuarioForm(ModelForm):
     email = forms.EmailField(label='Email', widget=forms.TextInput, required=True)
     user = forms.CharField(label="Usuario", widget=forms.TextInput, required=True)
     password = forms.CharField(label="Password", widget=forms.PasswordInput, required=True)
