@@ -12,10 +12,16 @@
 		{% for c in cuentas %}
 			{% if usuario in c.usuario %}
 			<h3>{{c.numero}}</h3>
+				<p>Movimientos</p>
+				{% for m in movimientos %}
+					{% if m.ncuenta==c %}
+						<p>{{m}}</p>
+					{% endif %}
+				{% endfor %}
 			{% endif %}
 			
 		{% empty %}
-			<li>No hay TFGs</li>
+			<li>No hay Movimientos</li>
 		{% endfor %}
 {% endblock %}
 	
