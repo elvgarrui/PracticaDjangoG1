@@ -13,10 +13,10 @@
 			<h3>{{dato.entidadId}}</h3>
 			<caption>Sucursales de este banco:</caption>
 			{% for sucur in sucursales}
-			
-			{% end
-				<h4>datoAux</h4>
-			<hr>
+				{% if sucur.banco == dato %}
+					<li>{{sucur}}</li>
+				{% endif %}
+			{% endfor %}
 		{% empty %}
 			<li>No hay bancos</li>
 		{% endfor %}
