@@ -8,6 +8,7 @@
 
 {% block conectado %}
 	{% if auth %}
+		<li><a href='/listMovimientos'>Mostrar movimientos del usuario</a></li>
 		<li><a href='/logout'>Log out</a></li>
 	{% else %}
 		<li><a href='/login'>Log in</a></li>
