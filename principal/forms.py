@@ -17,6 +17,9 @@ class FormUsuario(ModelForm):
         model = Usuario
         fields = ['nombre', 'apellidos']
 
+class BancoForm(ModelForm):
+    class Meta:
+        model = Banco
 # class ProfesorForm(ModelForm):
 #     email = forms.EmailField(label='Email', widget=forms.TextInput, required=True)
 #     user = forms.CharField(label="Usuario", widget=forms.TextInput, required=True)
