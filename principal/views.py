@@ -112,3 +112,8 @@ def list_movimientos(request):
     cuentas = Cuenta.objects.all()
     movimientos = Movimiento.objects.all()
     return render_to_response("lista_movimientos.html", {'cuentas':cuentas, 'movimientos':movimientos, 'usuario':usuario})
+
+def list_sucursales(request):
+    bancos = Banco.objects.all()
+    sucursales = Sucursales.objects.all()
+    return render_to_response("listaBS.html", {'bancos':bancos, 'sucursales':sucursales})
